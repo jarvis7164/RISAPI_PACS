@@ -9,7 +9,7 @@
 import datetime
 from FakerData import choice
 from c_store import find_images, store_image
-from config import Path_CT, Path_DR, Path_MR, Path_CT1, Path_CT2, Path_CT3
+from config import Path_CT, Path_DR, Path_MR, Path_CT1
 import os, time
 from pydicom.uid import generate_uid
 from importlib import reload
@@ -18,8 +18,6 @@ from importlib import reload
 from register import register
 
 """获取登记信息"""
-
-
 def get_reginfo():
     image_info = register()
     # print(image_info)
@@ -32,14 +30,12 @@ def get_reginfo():
 
 
 """批量c-store"""
-
-
 def send_image():
     reg_info = get_reginfo()
     # 根据检查类型发送相应的影像
     serviceSectID = reg_info[1]
     if serviceSectID == "CT":
-        Path = choice([Path_CT, Path_CT1, Path_CT2, Path_CT3])
+        Path = choice([Path_CT, Path_CT1])
     elif serviceSectID == "DR":
         Path = Path_DR
     else:

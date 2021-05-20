@@ -54,6 +54,7 @@ def store_image(file, StUID, **image):
 	# 2.修改影像值
 	ds.file_meta.TransferSyntaxUID = '1.2.840.10008.1.2'  # 'Implicit VR Little Endian'
 	# ds.file_meta.TransferSyntaxUID = '1.2.840.10008.1.2.4.80'
+	# ds.file_meta.TransferSyntaxUID ='1.2.840.10008.1.2.5' # (RLE Lossless)
 	ds.StudyInstanceUID = StUID
 	# ds.SeriesInstanceUID = SeUID
 	ds.PatientID = image['patientID']
